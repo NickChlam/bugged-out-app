@@ -1,0 +1,12 @@
+h1 {
+    color: #34434B;
+}
+.btn-success {
+    background-color: #A09474;
+    border-color:#A09474;
+}
+.btn-success:hover,
+.btn-success:disabled {
+    background-color: #ACA286;                      
+    border-color: #ACA286;
+}
