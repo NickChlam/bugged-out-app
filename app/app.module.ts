@@ -2,6 +2,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BugModule } from './bugs/bug.module';
+import { AppRoutingModule } from  './app-routing.module';
+import { RouterModule } from '@angular/router';
+
+
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +14,9 @@ import { AppComponent } from './app.component';
 @NgModule({
     imports: [ 
         BrowserModule,
-        BugModule
+        BugModule,
+        AppRoutingModule,
+        RouterModule
          ],
     declarations: [ AppComponent ],
     bootstrap: [ AppComponent]

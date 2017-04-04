@@ -12,6 +12,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var bug_module_1 = require('./bugs/bug.module');
+var app_routing_module_1 = require('./app-routing.module');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var AppModule = (function () {
     function AppModule() {
@@ -20,7 +22,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                bug_module_1.BugModule
+                bug_module_1.BugModule,
+                app_routing_module_1.AppRoutingModule,
+                router_1.RouterModule
             ],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]
