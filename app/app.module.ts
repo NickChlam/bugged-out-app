@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -16,9 +17,12 @@ import { AppComponent } from './app.component';
         BrowserModule,
         BugModule,
         AppRoutingModule,
-        RouterModule
+        RouterModule                                                                                            
          ],
-    declarations: [ AppComponent ],
+    declarations: [  
+        AppComponent,
+         NavbarComponent
+         ],
     bootstrap: [ AppComponent]
 })
 

@@ -14,6 +14,7 @@ var shared_module_1 = require('../shared/shared.module');
 var bug_routing_module_1 = require('./bug-routing.module');
 //Component
 var bug_list_component_1 = require('./bug-list/bug-list.component');
+var not_found_component_1 = require('../not-found.component');
 var BugModule = (function () {
     function BugModule() {
     }
@@ -24,7 +25,8 @@ var BugModule = (function () {
                 bug_routing_module_1.BugRoutingModule
             ],
             declarations: [
-                bug_list_component_1.BugListComponent
+                bug_list_component_1.BugListComponent,
+                not_found_component_1.NotFoundCompoent
             ],
             exports: [],
             providers: [] // these are the services 

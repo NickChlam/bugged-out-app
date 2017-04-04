@@ -9,27 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var bug_list_component_1 = require('./bug-list/bug-list.component');
-var not_found_component_1 = require('../not-found.component');
-var appRoutes = [
-    { path: '', redirectTo: 'bugs', pathMatch: 'full' },
-    { path: 'bugs', component: bug_list_component_1.BugListComponent },
-    { path: '**', component: not_found_component_1.NotFoundCompoent }
-];
-var BugRoutingModule = (function () {
-    function BugRoutingModule() {
+var NotFoundCompoent = (function () {
+    function NotFoundCompoent() {
     }
-    BugRoutingModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forChild(appRoutes)
-            ],
-            exports: [router_1.RouterModule]
+    NotFoundCompoent = __decorate([
+        core_1.Component({
+            selector: 'not-found',
+            template: '<h1> Page not Found </h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], BugRoutingModule);
-    return BugRoutingModule;
+    ], NotFoundCompoent);
+    return NotFoundCompoent;
 }());
-exports.BugRoutingModule = BugRoutingModule;
-//# sourceMappingURL=bug-routing.module.js.map
+exports.NotFoundCompoent = NotFoundCompoent;
+//# sourceMappingURL=not-found.component.js.map
