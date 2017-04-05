@@ -14,6 +14,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var bug_module_1 = require('./bugs/bug.module');
 var app_routing_module_1 = require('./app-routing.module');
 var router_1 = require('@angular/router');
+var core_module_1 = require('./core/core.module');
 var app_component_1 = require('./app.component');
 var navbar_component_1 = require('./navbar/navbar.component');
 var AppModule = (function () {
@@ -25,6 +26,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 bug_module_1.BugModule,
                 app_routing_module_1.AppRoutingModule,
+                core_module_1.CoreModule.forRoot(),
                 router_1.RouterModule
             ],
             declarations: [
