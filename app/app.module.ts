@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BugModule } from './bugs/bug.module';
 import { AppRoutingModule } from  './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -17,7 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         BrowserModule,
         BugModule,
         AppRoutingModule,
-        RouterModule                                                                                            
+        CoreModule.forRoot(),
+        RouterModule                                                                                       
          ],
     declarations: [  
         AppComponent,
