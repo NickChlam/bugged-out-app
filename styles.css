@@ -6,7 +6,10 @@ h1 {
     border-color:#A09474;
 }
 .btn-success:hover,
-.btn-success:disabled {
+.btn-success:disabled,
+.btn-success:active,
+.btn-success:focus
+ {
     background-color: #ACA286;                      
     border-color: #ACA286;
 }
