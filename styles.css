@@ -13,3 +13,8 @@ h1 {
     background-color: #ACA286;                      
     border-color: #ACA286;
 }
+@media only screen and (max-width: 500px) {
+    body {
+        
+    }
+}
