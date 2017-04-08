@@ -14,14 +14,17 @@ var BugListComponent = (function () {
     //set up subscruption to the method in bugservice
     function BugListComponent(BugService) {
         this.BugService = BugService;
+        this.bugs = []; // create an empty array of Bug
     }
     BugListComponent.prototype.ngOnInit = function () {
         this.getAddedBugs();
     };
     BugListComponent.prototype.getAddedBugs = function () {
+        var _this = this;
         this.BugService.getAddedBugs()
             .subscribe(function (bug) {
-            console.log(bug);
+            _this.bugs.push(bug);
+            console.log(_this.bugs); // TODO: REMOVE
         }, function (err) {
             console.error("Unable to get aded bug - ", err);
         });

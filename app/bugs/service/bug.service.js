@@ -22,7 +22,8 @@ var BugService = (function () {
         var _this = this;
         return Observable_1.Observable.create(function (obs) {
             _this.bugsDBRef.on('child_added', function (bug) {
-                obs.next(bug.val()); //extracts the content of the snapshot creates JS object
+                var newBug = bug.val();
+                obs.next(newBug); //extracts the content of the snapshot creates JS object but we cast our bug object from above
             }, function (err) {
                 obs.throw(err);
             });

@@ -10,7 +10,8 @@ import {FIREBASE_CONFIG } from '../constant/constants';
 
 export class FirebaseConfigService{
 
-    database: firebase.database.Database; // property to reference to database when we inject service 
+    private _database: firebase.database.Database; // property to reference to database when we inject service 
+
 
     constructor() {
         this.configureApp();
@@ -22,7 +23,11 @@ export class FirebaseConfigService{
        
     }
     configureDatabase() {
-        this.database = firebase.database(); //reference to database 
+        this._database = firebase.database(); //reference to database 
 
     }
+    public get database() {
+        return this._database;
+    }
+   
 }

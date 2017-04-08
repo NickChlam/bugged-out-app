@@ -6,6 +6,7 @@ import { BugRoutingModule } from './bug-routing.module';
 //Component
 import { BugListComponent } from './bug-list/bug-list.component';
 import { NotFoundCompoent } from '../not-found.component';
+import { BugDetailComponent } from  './bug-detail/bug-detail.component';
 
 //services
 
@@ -19,7 +20,8 @@ import { BugService } from './service/bug.service';
     ],
     declarations: [         // declare components, pipes etc
         BugListComponent,
-        NotFoundCompoent
+        NotFoundCompoent,
+        BugDetailComponent
     ],       
     exports: [],            // allow you to use a passthrough for modules 
     providers: [BugService]           // these are the services 
