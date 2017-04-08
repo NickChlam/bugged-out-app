@@ -15,6 +15,8 @@ var bug_routing_module_1 = require('./bug-routing.module');
 //Component
 var bug_list_component_1 = require('./bug-list/bug-list.component');
 var not_found_component_1 = require('../not-found.component');
+//services
+var bug_service_1 = require('./service/bug.service');
 var BugModule = (function () {
     function BugModule() {
     }
@@ -29,7 +31,7 @@ var BugModule = (function () {
                 not_found_component_1.NotFoundCompoent
             ],
             exports: [],
-            providers: [] // these are the services 
+            providers: [bug_service_1.BugService] // these are the services 
         }), 
         __metadata('design:paramtypes', [])
     ], BugModule);

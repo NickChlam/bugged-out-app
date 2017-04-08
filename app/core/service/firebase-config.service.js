@@ -10,13 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var firebase = require('firebase');
+// add database in - of the SDK 
+require('firebase/database');
 var constants_1 = require('../constant/constants');
 var FirebaseConfigService = (function () {
     function FirebaseConfigService() {
         this.configureApp();
+        this.configureDatabase();
     }
     FirebaseConfigService.prototype.configureApp = function () {
         firebase.initializeApp(constants_1.FIREBASE_CONFIG);
+    };
+    FirebaseConfigService.prototype.configureDatabase = function () {
+        this.database = firebase.database(); //reference to database 
     };
     FirebaseConfigService = __decorate([
         core_1.Injectable(), 

@@ -11,10 +11,30 @@ nav {
 .dropdown-menu  {
     border-radius: 0;
 }
+.navbar-nav {
+    float: right;
+}
+
 @media only screen and (max-width: 500px) {
     
     nav {
         width: 100%;
+    }
+    img {
+        width: 50%;
+        height: 50%;
+    }
+    .nav-item,
+    .dropdown-item,
+    .nav-dropdown,
+    .dropdown-menu{
+       width: 5px;
+       font-size: .5rem;
+       
+      
+    }
+    .navbar-nav{
+        float: initial;
     }
     
 }

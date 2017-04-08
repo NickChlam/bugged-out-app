@@ -7,6 +7,10 @@ import { BugRoutingModule } from './bug-routing.module';
 import { BugListComponent } from './bug-list/bug-list.component';
 import { NotFoundCompoent } from '../not-found.component';
 
+//services
+
+import { BugService } from './service/bug.service';
+
 
 @NgModule({
     imports: [ 
@@ -18,7 +22,7 @@ import { NotFoundCompoent } from '../not-found.component';
         NotFoundCompoent
     ],       
     exports: [],            // allow you to use a passthrough for modules 
-    providers: []           // these are the services 
+    providers: [BugService]           // these are the services 
 
 })
 
