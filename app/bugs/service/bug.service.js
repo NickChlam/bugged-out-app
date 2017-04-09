@@ -23,11 +23,44 @@ var BugService = (function () {
         return Observable_1.Observable.create(function (obs) {
             _this.bugsDBRef.on('child_added', function (bug) {
                 var newBug = bug.val();
+                newBug.id = bug.key;
                 obs.next(newBug); //extracts the content of the snapshot creates JS object but we cast our bug object from above
             }, function (err) {
                 obs.throw(err);
             });
         });
+    }; // end getAddedBugs
+    BugService.prototype.changedListener = function () {
+        var _this = this;
+        return Observable_1.Observable.create(function (obs) {
+            _this.bugsDBRef.on('child_changed', function (bug) {
+                var updatedBug = bug.val();
+                updatedBug.id = bug.key;
+                obs.next(updatedBug);
+            }, function (err) {
+                obs.throw(err);
+            });
+        });
+    };
+    BugService.prototype.addBug = function (bug) {
+        // get a reference to a new object
+        var newBugRef = this.bugsDBRef.push(); // creates a unique identifier 
+        newBugRef.set({
+            title: bug.title,
+            status: bug.status,
+            severity: bug.severity,
+            description: bug.description,
+            createdBy: 'Nick',
+            createdDate: Date.now() // gives us today in milleseconds
+        })
+            .catch(function (err) { return console.error('unable to add bug to firebase - ', err); });
+    };
+    BugService.prototype.updateBug = function (bug) {
+        var currentBugRef = this.bugsDBRef.child(bug.id); // bring down the id from the bug object so the URL: /bug/uniqueIdentifier
+        bug.id = null; //nullify bug id : dont save to firebase.  firebase will not create details for it 
+        bug.updatedBy = "Nick Chlam";
+        bug.updatedDate = Date.now();
+        currentBugRef.update(bug);
     };
     BugService = __decorate([
         core_1.Injectable(), 

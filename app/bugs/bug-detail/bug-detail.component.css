@@ -1,0 +1,49 @@
+#status-dropdown {
+    background: #ACA286 !important;
+}
+.modal-content {
+    border-radius:0;
+}
+.modal-body {
+    padding: 2.5rem 5rem; 
+
+}
+ #title-form-group {
+     margin-top: 1rem;
+ }
+ #title-field {
+     font-size:1.3rem;
+     
+     text-transform: uppercase;
+ }
+ #title-field,
+ #severity-dropdown {
+     padding:0;
+ }
+ #severity-form-group {
+     padding-left:0;
+     margin-bottom: 0;
+ }
+ #severity-dropdown {
+     margin: 1rem 0 1.5rem 0;
+     color: #CCC;
+ }
+ .modal-footer {
+     border:none;
+     text-align: center;
+     padding-bottom:4rem;
+ }
+
+ /* Validation */
+
+ textarea.ng-invalid.ng-dirty {
+     border-color: #c62828;
+     transition: border-color .2s ease;
+
+ }
+ #title-field.ng-invalid.ng-dirty {
+     border-left: 5px solid #C62828;
+     padding-left: 5px;
+     transition: border-width .2s ease;
+ }
+ 
