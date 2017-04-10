@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BugService } from '../service/bug.service';
+import { BugDetailComponent } from '../bug-detail/bug-detail.component';
 
 import { Bug } from '../model/bug';
 
@@ -21,6 +22,8 @@ export class BugListComponent implements OnInit {
     ngOnInit() {
         this.getAddedBugs();
         this.getUpdatedBugs();
+        this.getDeletedBugs();
+       
       
     }
 
@@ -45,10 +48,27 @@ export class BugListComponent implements OnInit {
                     .map(index => index.id )
                     .indexOf(updatedBug['id']);
                 this.bugs[bugIndex] = updatedBug;
+                console.log(updatedBug['id']); // TODO: Remove 
             },
             err => {
                  console.error("unable to get updated bug - ", err);
 
             });
     }
+    getDeletedBugs() {
+        this.BugService.deletedListener()
+            .subscribe(deletedBug => {
+                const bugIndex = this.bugs
+                    .map(index => index.id )
+                    .indexOf(deletedBug['id']);
+                this.bugs.splice(bugIndex,1);
+                console.log(deletedBug['title']);  // TODO: REMOVE 
+            },
+            err => {
+                 console.error("unable to get deleted bug - ", err);
+
+            });
+    }
+
+
 }

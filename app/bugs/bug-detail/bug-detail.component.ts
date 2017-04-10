@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 //services
@@ -26,7 +26,7 @@ export class BugDetailComponent implements OnInit {
     private statusArr: string[] = [];
     private severityArr: string[] = [];
 
-    @Input() currentBug = new Bug(null,null,this.statuses.logged,this.severities.severe,null,null,null,null,null);
+    private currentBug = new Bug(null,null,this.statuses.logged,this.severities.severe,null,null,null,null,null);
 
 
 
@@ -85,7 +85,7 @@ export class BugDetailComponent implements OnInit {
             this.addBug();
         }
         //this.currentBug.id ? this.updateBug() : this.addBug();
-        this.freshForm();
+        
         
     }
     addBug() {
@@ -96,6 +96,11 @@ export class BugDetailComponent implements OnInit {
     updateBug() {
         this.bugService.updateBug(this.currentBug);
         //this.freshForm();
+    }
+    deleteBug(bug: Bug) {
+        //this.configureForm(bug);
+        //console.log(this.currentBug);               
+        this.bugService.deleteBug(bug);
     }
 
     freshForm() {

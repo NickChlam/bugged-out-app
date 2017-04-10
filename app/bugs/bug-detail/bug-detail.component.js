@@ -65,7 +65,6 @@ var BugDetailComponent = (function () {
             this.addBug();
         }
         //this.currentBug.id ? this.updateBug() : this.addBug();
-        this.freshForm();
     };
     BugDetailComponent.prototype.addBug = function () {
         this.bugService.addBug(this.currentBug);
@@ -75,6 +74,11 @@ var BugDetailComponent = (function () {
         this.bugService.updateBug(this.currentBug);
         //this.freshForm();
     };
+    BugDetailComponent.prototype.deleteBug = function (bug) {
+        //this.configureForm(bug);
+        //console.log(this.currentBug);               
+        this.bugService.deleteBug(bug);
+    };
     BugDetailComponent.prototype.freshForm = function () {
         this.bugForm.reset({ status: this.statuses.logged, severity: this.severities.severe }); // get rid of initial values 
         this.cleanBug();
@@ -82,10 +86,6 @@ var BugDetailComponent = (function () {
     BugDetailComponent.prototype.cleanBug = function () {
         this.currentBug = new bug_1.Bug(null, null, this.statuses.logged, this.severities.severe, null, null, null, null, null);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], BugDetailComponent.prototype, "currentBug", void 0);
     BugDetailComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

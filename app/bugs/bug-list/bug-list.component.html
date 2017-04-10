@@ -3,7 +3,7 @@
         <h1>Logged Bugs</h1>
     </div>
     <div class="col-xs-6 text-xs-right btnAdd">
-        <button class="btn btn-success btn-lg" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal"><i class="fa fa-plus" aria-hidden="true"></i>Add Bug</button>
+        <button (click)="bugDetail.freshForm()"  class="btn btn-success btn-lg" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal" ><i class="fa fa-plus" aria-hidden="true" ></i>Add Bug</button>
     </div>
     
 
@@ -12,6 +12,8 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>     </th>
+                    <th>     </th>
                     <th>Title</th>
                     <th>Status </th>
                     <th> Severity </th>
@@ -21,17 +23,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let bug of bugs" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal" (click)="bugDetail.configureForm(bug)">
+                
+                <tr *ngFor="let bug of bugs">
+                    <td id="edit" (click)="bugDetail.configureForm(bug)" data-toggle="modal" [attr.data-target]=" '#' + bugDetail.modalId"> <i class="fa fa-pencil" aria-hidden="true"></i> </td>
+                    <td id="delete" (click)="bugDetail.deleteBug(bug)"> <i class="fa fa-trash" aria-hidden="true"></i> </td>
                     <td> {{ bug.title}} </td>
                     <td> {{ bug.status | status }}</td>
                     <td> {{ bug.severity | severity }} </td>
                     <td> {{ bug.description }}  </td>
                     <td> {{ bug.createdBy }}</td>
                     <td> {{ bug.createdDate | date }} </td>
+                    
+                
                 </tr>
+                
+                
             </tbody>
+             
         </table>
+       
     </div>
+   
 </div>
 
 <bug-detail #bugDetail></bug-detail>

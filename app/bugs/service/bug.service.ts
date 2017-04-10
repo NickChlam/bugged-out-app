@@ -31,13 +31,27 @@ export class BugService {
             });
         });   
     } // end getAddedBugs
-
+   
     changedListener(): Observable<any> {
         return Observable.create(obs => {
             this.bugsDBRef.on('child_changed', bug => {
                 const updatedBug = bug.val() as Bug;
                 updatedBug.id = bug.key;
                 obs.next(updatedBug);
+                
+            },
+            err => {
+                obs.throw(err);
+            });
+        });
+    }
+     deletedListener(): Observable<any> {
+        return Observable.create(obs => {
+            this.bugsDBRef.on('child_removed', bug1 => {
+                const deletedBug = bug1.val() as Bug;
+                deletedBug.id = bug1.key;
+                obs.next(deletedBug);
+                
             },
             err => {
                 obs.throw(err);
@@ -67,5 +81,11 @@ export class BugService {
         bug.updatedDate = Date.now();
         currentBugRef.update(bug);
     }
+    deleteBug(bug: Bug) {
+        const deleteBugRef = this.bugsDBRef.child(bug.id);
+        bug.id = null;
+        deleteBugRef.remove();
+    }
+
 }
 

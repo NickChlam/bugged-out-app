@@ -42,6 +42,18 @@ var BugService = (function () {
             });
         });
     };
+    BugService.prototype.deletedListener = function () {
+        var _this = this;
+        return Observable_1.Observable.create(function (obs) {
+            _this.bugsDBRef.on('child_removed', function (bug1) {
+                var deletedBug = bug1.val();
+                deletedBug.id = bug1.key;
+                obs.next(deletedBug);
+            }, function (err) {
+                obs.throw(err);
+            });
+        });
+    };
     BugService.prototype.addBug = function (bug) {
         // get a reference to a new object
         var newBugRef = this.bugsDBRef.push(); // creates a unique identifier 
@@ -61,6 +73,11 @@ var BugService = (function () {
         bug.updatedBy = "Nick Chlam";
         bug.updatedDate = Date.now();
         currentBugRef.update(bug);
+    };
+    BugService.prototype.deleteBug = function (bug) {
+        var deleteBugRef = this.bugsDBRef.child(bug.id);
+        bug.id = null;
+        deleteBugRef.remove();
     };
     BugService = __decorate([
         core_1.Injectable(), 
