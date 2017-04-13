@@ -101,6 +101,7 @@ export class BugDetailComponent implements OnInit {
         //this.configureForm(bug);
         //console.log(this.currentBug);               
         this.bugService.deleteBug(bug);
+        console.log(bug);
     }
 
     freshForm() {

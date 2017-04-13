@@ -76,7 +76,7 @@ var BugService = (function () {
     };
     BugService.prototype.deleteBug = function (bug) {
         var deleteBugRef = this.bugsDBRef.child(bug.id);
-        bug.id = null;
+        //bug.id = null;
         deleteBugRef.remove();
     };
     BugService = __decorate([

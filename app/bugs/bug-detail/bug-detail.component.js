@@ -78,6 +78,7 @@ var BugDetailComponent = (function () {
         //this.configureForm(bug);
         //console.log(this.currentBug);               
         this.bugService.deleteBug(bug);
+        console.log(bug);
     };
     BugDetailComponent.prototype.freshForm = function () {
         this.bugForm.reset({ status: this.statuses.logged, severity: this.severities.severe }); // get rid of initial values 

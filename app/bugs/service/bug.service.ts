@@ -83,7 +83,7 @@ export class BugService {
     }
     deleteBug(bug: Bug) {
         const deleteBugRef = this.bugsDBRef.child(bug.id);
-        bug.id = null;
+        //bug.id = null;
         deleteBugRef.remove();
     }
 

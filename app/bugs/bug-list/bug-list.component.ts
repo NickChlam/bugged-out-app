@@ -61,7 +61,7 @@ export class BugListComponent implements OnInit {
                 const bugIndex = this.bugs
                     .map(index => index.id )
                     .indexOf(deletedBug['id']);
-                this.bugs.splice(bugIndex,1);
+                this.bugs.splice(bugIndex ,1);
                 console.log(deletedBug['title']);  // TODO: REMOVE 
             },
             err => {
